@@ -1,0 +1,45 @@
+name: development-push-ci-workflow
+
+on: [push]
+
+jobs:
+  build:
+    name: runing Rails Lint and Test
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres
+        ports:
+          - 5432:5432
+        env:
+          POSTGRES_USER: root
+          POSTGRES_PASSWORD: password
+          POSTGRES_DB: next_bosyu_backend_test
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.0.2
+
+      - name: Run bundle install
+        run: |
+          bundle install --jobs=4
+
+      - name: Run rspec tests
+        env:
+          RAILS_ENV: test
+          DATABASE_PORT: 5432
+        run: |
+          bin/rails db:create
+          bin/rails db:migrate
+          bin/rspec
+      - name: Run rubocop
+        run: bundle exec rubocop -a
+
+
+
+
