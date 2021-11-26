@@ -20,7 +20,7 @@ end
 group :development do
   gem 'listen', '~> 3.3'
   gem 'rubocop', require: false
-  # gem 'spring'
+  gem 'spring'
   # gem 'spring-commands-rspec'
 end
 
