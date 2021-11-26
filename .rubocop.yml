@@ -1,0 +1,32 @@
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/SpecialGlobalVars:
+  Enabled: false
+
+Metrics/CyclomaticComplexity:
+  Enabled: false
+
+Metrics/PerceivedComplexity:
+  Enabled: false
+
+## メソッドが長すぎると怒られるやつ
+Metrics/MethodLength:
+  Enabled: false
+
+Layout/LineLength:
+  Enabled: false
+
+Style/RedundantFetchBlock:
+  Enabled: false
+
+## グローバル定数がどうたらこうたらのやつ
+Style/GlobalStdStream:
+  Enabled: false
+
+## if / unless文のスタイルに関するやつ
+Style/IfUnlessModifier:
+  Enabled: false
