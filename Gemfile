@@ -24,4 +24,7 @@ group :development do
   gem 'spring-commands-rspec'
 end
 
+group :production do
+end
+
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
