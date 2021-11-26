@@ -1,24 +1,13 @@
-# README
+# 概要
+本サービスは、過去にTwitterを活用した企業と求職者とのマッチングサービスであった「bosyu」を真似て作成したサービスです。
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# 使用技術について
+### バックエンド
+* Ruby
+* Ruby on Rails
+* GraphQL
+* PostgreSQL
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### フロントエンド
+* React.js
+* Next,js
