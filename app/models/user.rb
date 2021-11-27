@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+  has_many :contracts
+  has_many :watch_histories
+
   validates :first_name, presence: true
   validates :last_name, presence: true
 
