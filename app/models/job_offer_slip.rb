@@ -1,0 +1,2 @@
+class JobOfferSlip < ApplicationRecord
+end

@@ -1,4 +1,4 @@
 FactoryBot.define do
-  factory :user do
+  factory :watch_history do
   end
 end
