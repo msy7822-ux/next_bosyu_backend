@@ -1,4 +1,4 @@
 FactoryBot.define do
-  factory :user do
+  factory :job_offer_slip do
   end
 end

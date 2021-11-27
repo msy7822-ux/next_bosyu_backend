@@ -30,3 +30,7 @@ Style/GlobalStdStream:
 ## if / unless文のスタイルに関するやつ
 Style/IfUnlessModifier:
   Enabled: false
+
+## ブロックがんばがすぎると怒られるやつ
+Metrics/BlockLength:
+  Enabled: false
