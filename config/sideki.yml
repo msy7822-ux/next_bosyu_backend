@@ -1,0 +1,9 @@
+:max_retries: 25
+
+development:
+  :max_retries: 3
+
+:queues:
+  - default
+  - mailers
+# :daemon: true

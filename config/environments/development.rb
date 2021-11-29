@@ -1,6 +1,15 @@
 require 'active_support/core_ext/integer/time'
 
 Rails.application.configure do
+  config.after_initialize do
+    Bullet.enable        = true # Bulletプラグインを有効
+    Bullet.alert         = true # JavaScriptでの通知
+    Bullet.bullet_logger = true # log/bullet.logへの出力
+    Bullet.console       = true # ブラウザのコンソールログに記録
+    # Bullet.growl         = true
+    Bullet.rails_logger  = true # Railsログに出力
+    Bullet.add_footer    = true # ページの左下に結果を表示
+  end
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded any time
@@ -17,7 +26,9 @@ Rails.application.configure do
   # Enable/disable caching. By default caching is disabled.
   # Run rails dev:cache to toggle caching.
   if Rails.root.join('tmp', 'caching-dev.txt').exist?
-    config.cache_store = :memory_store
+    config.cache_store = :redis_cache_store, { url: 'redis://127.0.0.1:6379/1',
+                                               namespace: 'cache',
+                                               expires_in: 10.days }
     config.public_file_server.headers = {
       'Cache-Control' => "public, max-age=#{2.days.to_i}"
     }
@@ -27,13 +38,16 @@ Rails.application.configure do
     config.cache_store = :null_store
   end
 
+  config.session_store :redis_store, servers: %w[redis://127.0.0.1:6379/0/session], expire_after: 90
+    .days # 有効期限90分
+
   # Store uploaded files on the local file system (see config/storage.yml for options).
   config.active_storage.service = :local
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
 
-  config.action_mailer.perform_caching = false
+  config.action_mailer.perform_caching = true
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
@@ -55,6 +69,7 @@ Rails.application.configure do
 
   # Annotate rendered view with file names.
   # config.action_view.annotate_rendered_view_with_filenames = true
+  # config.hosts << 'https://c651-2400-4153-e003-ea00-39ce-d819-a02e-ca1b.ngrok.io/auth/twitter/callback'
 
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.

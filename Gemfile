@@ -10,12 +10,19 @@ gem 'puma', '~> 5.0'
 gem 'rack-cors'
 gem 'bcrypt', '~> 3.1.7'
 gem 'twitter'
-gem 'omniauth-twitter'
-gem 'tweetkit'
 gem 'dotenv-rails'
 gem 'graphql'
+gem 'redis-rails'
+gem 'sidekiq'
+gem 'sendgrid-ruby'
+gem "sentry-ruby"
+gem "sentry-rails"
+gem 'jwt'
+# gem 'omniauth-rails_csrf_protection'
+# gem 'omniauth-twitter'
 # gem 'typhoeus'
 # gem 'oauth'
+# gem 'tweetkit'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
@@ -29,7 +36,8 @@ end
 group :development do
   gem 'listen', '~> 3.3'
   gem 'rubocop', require: false
-  gem 'spring'
+  # gem 'spring'
+  gem 'bullet'
 end
 
 group :production do
