@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   # delete '/logout', to: 'sessions#logout'
   # get '/auth/:provider/callback', to: 'sessions#twitter'
 
-  post '/test', to: 'sessions#test'
+  get '/mail_auth', to: 'mail_auth#redirect_top_page'
+
+  get '/test', to: 'sessions#test'
   mount Sidekiq::Web => '/sidekiq'
 end

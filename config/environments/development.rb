@@ -69,7 +69,7 @@ Rails.application.configure do
 
   # Annotate rendered view with file names.
   # config.action_view.annotate_rendered_view_with_filenames = true
-  # config.hosts << 'https://c651-2400-4153-e003-ea00-39ce-d819-a02e-ca1b.ngrok.io/auth/twitter/callback'
+  config.hosts << 'fccc-2400-4153-e003-ea00-d8d4-503e-9bef-1b2.ap.ngrok.io'
 
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
