@@ -1,12 +1,8 @@
 class SessionsController < ApplicationController
-  skip_before_action :require_login, only: %i[login test twitter]
+  skip_before_action :require_login, only: %i[login test]
 
   def test
     tw_client.post_to_twitter(content: 'テスト投稿です。無視してください。')
-  end
-
-  def twitter
-    p request
   end
 
   def login
