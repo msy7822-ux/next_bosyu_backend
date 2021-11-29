@@ -3,7 +3,7 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1><%= @user.full_name %>様</h1>
+    <%# <h1><%= @user.full_name %>様</h1> %>
       <p>
       この度は、NextBosyuへの登録をいただきありがとうございます！
 
@@ -11,7 +11,8 @@
 
       Twitterに投稿する
       <%# <%= @url %> %>
-      <%= url_for(host: 'fccc-2400-4153-e003-ea00-d8d4-503e-9bef-1b2.ap.ngrok.io',
+      <%# <%= url_for(host: 'fccc-2400-4153-e003-ea00-d8d4-503e-9bef-1b2.ap.ngrok.io', %>
+      <%= url_for(host: 'next-bosyu.herokuapp.com',
             controller: 'mail_auth',
             action: 'redirect_top_page') %>
     </p>
