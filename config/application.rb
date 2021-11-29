@@ -35,7 +35,8 @@ module NextBosyuBackend
       g.fixture_replacement :factory_bot, dir: 'spec/factories'
     end
 
-    config.i18n.default_locale = :ja
+    I18n.config.available_locales = :ja
+    I18n.default_locale = :ja
     config.api_only = true
 
     # Cookie
