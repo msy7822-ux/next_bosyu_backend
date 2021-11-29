@@ -7,7 +7,7 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins ['http://localhost:3000', 'https://next-bosyu-frontend.vercel.app', 'https://next-bosyu-frontend-89cn88ihz-msy7822-ux.vercel.app']
+    origins ['http://localhost:3000', 'https://next-bosyu-frontend.vercel.app', 'https://next-bosyu-frontend-89cn88ihz-msy7822-ux.vercel.app', 'https://next-bosyu.netlify.app']
 
     resource '*',
              headers: :any,
