@@ -34,3 +34,9 @@ Style/IfUnlessModifier:
 ## ブロックがんばがすぎると怒られるやつ
 Metrics/BlockLength:
   Enabled: false
+
+Naming/MethodParameterName:
+  Enabled: false
+
+Lint/UselessMethodDefinition:
+  Enabled: false

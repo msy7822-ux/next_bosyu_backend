@@ -3,21 +3,21 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.0.2'
 
-gem 'rails', '~> 6.1.4', '>= 6.1.4.1'
+gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', '>= 1.4.4', require: false
+gem 'dotenv-rails'
+gem 'graphql'
+gem 'jwt'
 gem 'pg', '~> 1.1'
 gem 'puma', '~> 5.0'
 gem 'rack-cors'
-gem 'bcrypt', '~> 3.1.7'
-gem 'twitter'
-gem 'dotenv-rails'
-gem 'graphql'
+gem 'rails', '~> 6.1.4', '>= 6.1.4.1'
 gem 'redis-rails'
-gem 'sidekiq'
 gem 'sendgrid-ruby'
-gem "sentry-ruby"
-gem "sentry-rails"
-gem 'jwt'
+gem 'sentry-rails'
+gem 'sentry-ruby'
+gem 'sidekiq'
+gem 'twitter'
 # gem 'omniauth-rails_csrf_protection'
 # gem 'omniauth-twitter'
 # gem 'typhoeus'
@@ -28,9 +28,9 @@ group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'factory_bot_rails'
   gem 'faker'
+  gem 'graphiql-rails'
   gem 'rails-erd'
   gem 'rspec-rails'
-  gem 'graphiql-rails'
 end
 
 group :development do
