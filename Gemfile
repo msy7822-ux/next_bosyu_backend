@@ -31,6 +31,7 @@ group :development, :test do
   gem 'graphiql-rails'
   gem 'rails-erd'
   gem 'rspec-rails'
+  gem 'seed-fu'
 end
 
 group :development do
