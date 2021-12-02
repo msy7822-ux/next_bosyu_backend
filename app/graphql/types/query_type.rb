@@ -8,16 +8,18 @@ module Types
       User.all
     end
 
-    field :corporates, [Types::UserType], null: false, description: 'aquire all corporates'
-    def corporates
-      Corporate.all
-    end
-
     field :user, Types::UserType, null: false do
       argument :id, ID, required: true
     end
     def user(id:)
       User.find(id)
+    end
+
+    field :job_offer_slips, [Types::JobOfferSlipType], null: false
+    def job_offer_slips
+      # => N+1は発生せず
+      JobOfferSlip.eager_load(corporate: :user).all
+      # JobOfferSlip.all -> N+1発生
     end
   end
 end

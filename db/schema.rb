@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_211_128_012_721) do
+ActiveRecord::Schema.define(version: 20_211_201_164_547) do
   # These are extensions that must be enabled in order to support this database
   enable_extension 'plpgsql'
 
@@ -27,35 +27,30 @@ ActiveRecord::Schema.define(version: 20_211_128_012_721) do
   end
 
   create_table 'corporates', force: :cascade do |t|
-    t.string 'name', null: false
-    t.string 'email'
-    t.integer 'login_way', null: false
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
-    t.index ['email'], name: 'index_corporates_on_email', unique: true
+    t.bigint 'user_id'
+    t.index ['user_id'], name: 'index_corporates_on_user_id'
   end
 
   create_table 'job_offer_slips', force: :cascade do |t|
     t.bigint 'corporate_id'
-    t.string 'job_category', null: false
-    t.text 'job_detail', null: false
-    t.integer 'reward', null: false
     t.string 'tag'
-    t.date 'posting_period', null: false
-    t.boolean 'displayed', null: false
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
+    t.string 'title', null: false
+    t.text 'content', null: false
+    t.boolean 'displayed', default: true, null: false
     t.index ['corporate_id'], name: 'index_job_offer_slips_on_corporate_id'
   end
 
   create_table 'users', force: :cascade do |t|
-    t.string 'first_name', null: false
-    t.string 'last_name', null: false
-    t.string 'email'
-    t.integer 'login_way', default: 0, null: false
+    t.string 'email', null: false
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
-    t.text 'password_digest'
+    t.string 'name', null: false
+    t.text 'imageUrl'
+    t.string 'token', null: false
     t.index ['email'], name: 'index_users_on_email', unique: true
   end
 
@@ -72,6 +67,7 @@ ActiveRecord::Schema.define(version: 20_211_128_012_721) do
   add_foreign_key 'contracts', 'corporates'
   add_foreign_key 'contracts', 'job_offer_slips'
   add_foreign_key 'contracts', 'users'
+  add_foreign_key 'corporates', 'users'
   add_foreign_key 'job_offer_slips', 'corporates'
   add_foreign_key 'watch_histories', 'job_offer_slips'
   add_foreign_key 'watch_histories', 'users'

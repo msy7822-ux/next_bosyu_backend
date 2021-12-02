@@ -3,17 +3,9 @@ class ApplicationController < ActionController::API
 
   include ActionController::Cookies
 
-  def set_current_user(email) # rubocop:disable Naming/AccessorMethodName
-    # @current_user = User.find_by(email: email)
-    @current_user = email
-  end
-
-  def current_user
-    @current_user ||= User.find_by(id: session[:user_id])
-  end
-
   def require_login
-    return if @current_user
+    @current_user = User.find_by(token: request.query_parameters[:token])
+    return if @current_user && request.query_parameters[:session]
 
     render json: { error_type: 'not authorized', message: '認証がされていません。' }, status: :unauthorized
   end

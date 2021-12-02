@@ -35,9 +35,10 @@ module NextBosyuBackend
       g.fixture_replacement :factory_bot, dir: 'spec/factories'
     end
 
-    I18n.config.available_locales = :ja
-    I18n.default_locale = :ja
     config.api_only = true
+
+    config.i18n.default_locale = :ja
+    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.yml').to_s]
 
     # Cookie
     # Omniauth用のapplication設定(今後変更する可能性あり)

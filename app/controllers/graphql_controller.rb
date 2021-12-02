@@ -1,7 +1,4 @@
 class GraphqlController < ApplicationController
-  ## 開発環境でのみ、ログイン要求をしない
-  skip_before_action :require_login, only: [:execute] if Rails.env.development?
-
   def execute
     variables = prepare_variables(params[:variables])
     query = params[:query]

@@ -1,10 +1,9 @@
 module Types
   class JobOfferSlipType < Types::BaseObject
     field :id, ID, null: false
-    field :corporate_id, Integer, null: true
-    field :job_category, String, null: false
-    field :job_detail, String, null: false
-    field :reward, Integer, null: false
+    field :corporate, Types::CorporateType, null: true
+    field :content, String, null: false
+    field :title, String, null: false
     field :tag, String, null: true
     field :posting_period, GraphQL::Types::ISO8601Date, null: false
     field :displayed, Boolean, null: false
