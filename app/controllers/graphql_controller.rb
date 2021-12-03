@@ -1,4 +1,6 @@
 class GraphqlController < ApplicationController
+  skip_before_action :require_login, only: [:execute]
+
   def execute
     variables = prepare_variables(params[:variables])
     query = params[:query]
