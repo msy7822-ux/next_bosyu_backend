@@ -37,8 +37,10 @@ module NextBosyuBackend
 
     config.api_only = true
 
-    config.i18n.default_locale = :ja
-    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.yml').to_s]
+    # config.i18n.default_locale = :ja
+    config.i18n.default_locale = :en
+    # config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.yml').to_s]
+    # config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '*.yml').to_s]
 
     # Cookie
     # Omniauth用のapplication設定(今後変更する可能性あり)

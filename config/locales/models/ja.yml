@@ -2,8 +2,14 @@ ja:
   activerecord:
     models:
       user: ユーザー
+      job_offer_slip: 求人票
+      corporate: 募集者
     attributes:
       user:
         name: 名前
         email: メールアドレス
         imageUrl: 画像アドレス
+      job_offer_slip:
+        title: タイトル
+        content: 募集詳細
+        tag: タグ

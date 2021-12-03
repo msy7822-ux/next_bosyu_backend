@@ -15,11 +15,12 @@ module Types
       User.find(id)
     end
 
-    field :job_offer_slips, [Types::JobOfferSlipType], null: false
+    # field :job_offer_slips, [Types::JobOfferSlipType], null: false
+    field :job_offer_slips, Types::JobOfferSlipType.connection_type, null: false
     def job_offer_slips
-      # => N+1は発生せず
-      JobOfferSlip.eager_load(corporate: :user).all
       # JobOfferSlip.all -> N+1発生
+      # 下記ではN+1は発生せず
+      JobOfferSlip.eager_load(corporate: :user).all
     end
   end
 end

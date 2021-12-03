@@ -10,8 +10,10 @@ module ExternalServices
       end
     end
 
-    def post_to_twitter(content:)
-      @client.update(content)
+    def post_to_twitter(title:, name:)
+      new_title = title.gsub('/s', "\n")
+      text = "募集タイトル: #{new_title}\n募集者: #{name}"
+      @client.update(text)
     end
   end
 end

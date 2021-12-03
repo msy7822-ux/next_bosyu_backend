@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   end
 
   resources :users
+  resources :job_offer_slips, only: [:create]
 
   ## Twitter login
   post '/login', to: 'sessions#login'
