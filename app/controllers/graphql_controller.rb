@@ -1,5 +1,6 @@
 class GraphqlController < ApplicationController
-  skip_before_action :require_login, only: [:execute]
+  # # MEMO: このSkipはgraphiQLを使うためのもの　
+  # skip_before_action :require_login, only: [:execute]
 
   def execute
     variables = prepare_variables(params[:variables])

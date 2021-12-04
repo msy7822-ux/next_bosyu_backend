@@ -6,6 +6,7 @@ module Types
     field :title, String, null: false
     field :tag, String
     field :logined, Boolean, null: false
+    field :token, String, null: false
     field :displayed, Boolean, null: false
     field :created_at, GraphQL::Types::ISO8601DateTime, null: false
     field :updated_at, GraphQL::Types::ISO8601DateTime, null: false

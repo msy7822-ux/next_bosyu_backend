@@ -4,8 +4,6 @@ class ApplicationController < ActionController::API
   include ActionController::Cookies
 
   def require_login
-    return if request.query_parameters[:token]
-
     @current_user = User.find_by(token: request.query_parameters[:token])
     return if @current_user && request.query_parameters[:session]
 
