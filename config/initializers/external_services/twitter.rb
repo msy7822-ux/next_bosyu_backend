@@ -12,7 +12,7 @@ module ExternalServices
 
     def post_to_twitter(title:, name:)
       new_title = title.gsub('/s', "\n")
-      text = "募集タイトル: #{new_title}\n募集者: #{name}"
+      text = "募集タイトル: #{new_title}\n募集者: #{name}\n\nhttps://next-bosyu.netlify.app/offers"
       @client.update(text)
     end
   end
