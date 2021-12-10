@@ -3,7 +3,13 @@ class SessionsController < ApplicationController
 
   def test
     # tw_client.post_to_twitter(content: 'テスト投稿です。無視してください。')
-    tw_client.search_user_by_email
+    # tw_client.search_user_by_email
+    len   = ActiveSupport::MessageEncryptor.key_len
+    salt  = SecureRandom.random_bytes(len)
+    key   = ActiveSupport::KeyGenerator.new('password').generate_key(salt, len) # => "\x89\xE0\x156\xAC..."
+    crypt = ActiveSupport::MessageEncryptor.new(key)
+    password = '$2a$10$N4g2/Ra8vUREwBILRi8Vi.6q.LTqIs5fzad0YwUq59lb6ZGQYpmMG'
+    pp crypt.decrypt_and_verify(password)
   end
 
   def login

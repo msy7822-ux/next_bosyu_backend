@@ -3,7 +3,7 @@ class PostBosyuContentToTwitterJob < ApplicationJob
 
   def perform(job_offer_slip)
     pp user = JobOfferSlip.eager_load(corporate: :user).find(job_offer_slip.id).corporate.user
-    client.post_to_twitter(title: job_offer_slip.title, name: user.name)
+    client.post_to_twitter(title: job_offer_slip.title, name: user.name, tag: job_offer_slip.tag)
   end
 
   private

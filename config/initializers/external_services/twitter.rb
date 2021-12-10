@@ -10,9 +10,11 @@ module ExternalServices
       end
     end
 
-    def post_to_twitter(title:, name:)
-      new_title = title.gsub('/s', "\n")
-      text = "募集タイトル: #{new_title}\n募集者: #{name}\n\nhttps://next-bosyu.netlify.app/offers"
+    def post_to_twitter(title:, name:, tag:)
+      new_title = title.gsub(%r{[/s]}, "\n")
+      new_tag = tag.split('#')[1..]&.map { |s| "##{s}" } if tag.present?
+      text = "募集タイトル: #{new_title}\n募集者: #{name}\n\n#{new_tag&.join(' ')}\n\n\nhttps://next-bosyu.netlify.app/offers"
+
       @client.update(text)
     end
   end
