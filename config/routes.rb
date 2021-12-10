@@ -7,13 +7,10 @@ Rails.application.routes.draw do
     mount GraphiQL::Rails::Engine, at: '/graphiql', graphql_path: 'graphql#execute'
   end
 
+  get '/users/myself', to: 'users#myself'
+  get 'users/:id', to: 'users#name'
   resources :users
-  resources :job_offer_slips, only: [:create]
-
-  ## Twitter login
-  post '/login', to: 'sessions#login'
-  # delete '/logout', to: 'sessions#logout'
-  # get '/auth/:provider/callback', to: 'sessions#twitter'
+  resources :job_offer_slips, only: %i[create show]
 
   get '/mail_auth', to: 'mail_auth#redirect_top_page'
 

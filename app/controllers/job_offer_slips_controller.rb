@@ -10,6 +10,11 @@ class JobOfferSlipsController < ApplicationController
     )
   end
 
+  def show
+    offer = JobOfferSlip.eager_load(corporate: :user).select('job_offer_slips.title, job_offer_slips.corporate_id, users.name').find(params[:id])
+    render json: offer, status: :ok
+  end
+
   private
 
   def offer_params

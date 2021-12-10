@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.0.2'
 
+gem 'active_model_serializers'
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'dotenv-rails'
@@ -18,11 +19,6 @@ gem 'sentry-rails'
 gem 'sentry-ruby'
 gem 'sidekiq'
 gem 'twitter'
-# gem 'omniauth-rails_csrf_protection'
-# gem 'omniauth-twitter'
-# gem 'typhoeus'
-# gem 'oauth'
-# gem 'tweetkit'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
