@@ -8,7 +8,7 @@ module Types
       argument :token, String, required: true
     end
     def user(token:)
-      User.eager_load(corporate: :job_offer_slips).where('job_offer_slips.displayed = ?', true).find_by(token: token)
+      User.eager_load(corporate: :job_offer_slips).find_by(token: token)
     end
 
     ## 募集の検索部分

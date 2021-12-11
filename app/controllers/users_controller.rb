@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   skip_before_action :require_login, only: %i[create myself]
   def create
     puts 'users_contorroler'
+    ### 今起きているエラーはこの辺りがめちゃくちゃ怪しい
     user = User.find_by(token: user_params[:token])
     user ||= User.create!(user_params)
     pp user
